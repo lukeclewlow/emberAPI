@@ -34,6 +34,7 @@ group :development, :test do
   gem "pry-theme"
   gem "rspec-rails"
   gem "rubocop"
+  gem 'shoulda'
   gem "shoulda-matchers"
   gem "spring-commands-rspec"
 end
