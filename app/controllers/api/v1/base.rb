@@ -4,6 +4,7 @@ module API
   module V1
     class Base < Grape::API
       mount API::V1::Tunes
+      mount API::V1::Genres
       # mount API::V1::AnotherResource
 
       add_swagger_documentation(
