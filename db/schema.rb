@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150601103527) do
+ActiveRecord::Schema.define(version: 20150602091948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,12 @@ ActiveRecord::Schema.define(version: 20150601103527) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "genres", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tunes", force: :cascade do |t|
     t.string   "artist"
     t.string   "title"
@@ -56,6 +62,10 @@ ActiveRecord::Schema.define(version: 20150601103527) do
     t.text     "blog"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "genre_id"
   end
 
+  add_index "tunes", ["genre_id"], name: "index_tunes_on_genre_id", using: :btree
+
+  add_foreign_key "tunes", "genres"
 end

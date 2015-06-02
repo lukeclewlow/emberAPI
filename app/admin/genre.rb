@@ -1,6 +1,6 @@
-ActiveAdmin.register Tune do
+ActiveAdmin.register Genre do
 
-	permit_params :id, :artist, :title, :link, :blog, :genre_id
+	permit_params :id, :name
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
