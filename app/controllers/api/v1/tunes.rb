@@ -16,6 +16,14 @@ module API
         get ":id", root: "tune" do
           Tune.where(id: permitted_params[:id]).first!
         end
+
+        desc "Return a genre of tunes"
+        params do
+          requires :genre_id, type: String, desc: "ID of the genre"
+        end
+        get ":genre_id", root: "tune" do
+          Tune.where(genre_id: permitted_params[:genre_id]).first!
+        end
       end
     end
   end
