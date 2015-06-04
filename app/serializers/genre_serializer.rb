@@ -1,3 +1,5 @@
 class GenreSerializer < ActiveModel::Serializer
-  attributes :id, :name, :tunes
+	embed :ids, :include => true
+  attributes :id, :name
+  has_many :tunes
 end
